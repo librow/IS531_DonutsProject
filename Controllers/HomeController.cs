@@ -1,5 +1,7 @@
 ﻿using IS531_DonutsProject.Models;
+using IS531_DonutsProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,23 +15,15 @@ namespace IS531_DonutsProject.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private DonutsContext _context { get; set; }
+        public HomeController(DonutsContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            //return View(new IndexViewModel
-            //{
-            //    Recipes = (_context.Recipes
-            //        .Where(m => m.RecipeClassId == mealtypeid || mealtypeid == null)
-            //        .OrderBy(m => m.RecipeTitle)
-            //        .Skip((pageNum - 1) * pageSize)
-            //        .Take(pageSize)
-            //        .ToList()),
-            //});
-            return View();
+            return View(_context.Donuts);
         }
 
         public IActionResult Privacy()

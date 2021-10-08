@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-2",
+    "configuration" : "Release",
+    "framework"     : "netcoreapp3.1",
+    "self-contained" : false,
+    "application"    : "IS531DonutsProject",
+    "environment"    : "IS531DonutsProject-dev",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-64b36810\";\"aws:ec2:vpc,Subnets\"=\"subnet-36a4165d\"",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.2.6 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "is531donutsproject-dev",
+    "instance-type"        : "t3a.medium",
+    "key-pair"             : "EC2Key",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx"
+}
